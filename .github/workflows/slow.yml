@@ -1,0 +1,33 @@
+name: Slow CI
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  slow-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start job
+        run: echo "🚀 Starting slow workflow..."
+
+      # Simulation d'une tâche lente avec sleep
+      - name: Wait a bit (simulate build)
+        run: |
+          echo "⏳ Building project (this will take a while)..."
+          sleep 10
+          echo "✅ Build complete!"
+
+      - name: Run some fake tests
+        run: |
+          echo "🧪 Running tests..."
+          sleep 5
+          echo "✅ Tests passed!"
+
+      - name: End job
+        run: echo "🎉 Workflow finished successfully!"
