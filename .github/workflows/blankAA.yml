@@ -1,0 +1,18 @@
+name: CI 10 Seconds
+
+on:
+  workflow_dispatch:
+
+jobs:
+  wait:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Start
+        run: echo "Workflow started"
+
+      - name: Wait 10 seconds
+        run: sleep 10
+
+      - name: End
+        run: echo "Workflow finished after 10 seconds"
